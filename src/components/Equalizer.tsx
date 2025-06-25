@@ -170,7 +170,7 @@ export const Equalizer: React.FC<EqualizerProps> = ({ equalizer }) => {
 
           {/* Frequency Bands */}
           <div className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-4 lg:p-6 border border-gray-200 dark:border-gray-700">
-            <h3 className="text-base lg:text-lg font-semibold mb-4">Frequency Bands</h3>
+            <h3 className="text-base lg:text-lg font-semibold mb-4">Frequencpl Bands</h3>
             
             <div className="flex justify-between items-end space-x-1 lg:space-x-2 h-32 lg:h-48">
               {equalizerState.bands.map((band, index) => (
