@@ -98,7 +98,7 @@ export const Equalizer: React.FC<EqualizerProps> = ({ equalizer }) => {
           </div>
         </div>
 
-        <div className="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
+        <div className="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8">
           {/* Presets */}
           <div className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-4 lg:p-6 border border-gray-200 dark:border-gray-700">
             <h3 className="text-base lg:text-lg font-semibold mb-4 flex items-center space-x-2">
@@ -126,7 +126,6 @@ export const Equalizer: React.FC<EqualizerProps> = ({ equalizer }) => {
           {/* Bass & Treble */}
           <div className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-4 lg:p-6 border border-gray-200 dark:border-gray-700">
             <h3 className="text-base lg:text-lg font-semibold mb-4">Bass & Treble</h3>
-            
             <div className="space-y-6">
               <div>
                 <div className="flex justify-between items-center mb-2">
@@ -146,7 +145,6 @@ export const Equalizer: React.FC<EqualizerProps> = ({ equalizer }) => {
                   style={{ minHeight: '44px' }}
                 />
               </div>
-
               <div>
                 <div className="flex justify-between items-center mb-2">
                   <label className="text-sm font-medium">Treble</label>
@@ -167,40 +165,39 @@ export const Equalizer: React.FC<EqualizerProps> = ({ equalizer }) => {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Frequency Bands */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-4 lg:p-6 border border-gray-200 dark:border-gray-700">
-            <h3 className="text-base lg:text-lg font-semibold mb-4">Frequency Bands</h3>
-            
-            <div className="flex justify-between items-end space-x-1 lg:space-x-2 h-32 lg:h-48">
-              {equalizerState.bands.map((band, index) => (
-                <div key={band.frequency} className="flex flex-col items-center space-y-2 flex-1">
-                  <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
-                    {band.gain > 0 ? '+' : ''}{band.gain}
-                  </span>
-                  <div className="flex flex-col items-center h-20 lg:h-32">
-                    <input
-                      type="range"
-                      min="-12"
-                      max="12"
-                      step="1"
-                      value={band.gain}
-                      onChange={(e) => handleBandChange(index, e.target.value)}
-                      className="h-16 lg:h-28 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer slider vertical touch-manipulation"
-                      style={{ 
-                        writingMode: 'bt-lr', 
-                        WebkitAppearance: 'slider-vertical',
-                        width: '20px',
-                        minWidth: '20px'
-                      }}
-                    />
-                  </div>
-                  <span className="text-xs text-gray-500 dark:text-gray-400 font-medium text-center leading-tight">
-                    {band.label}
-                  </span>
+        {/* Frequency Bands */}
+        <div className="mt-6 lg:mt-8 bg-white dark:bg-gray-800 rounded-xl lg:rounded-2xl p-4 lg:p-6 border border-gray-200 dark:border-gray-700">
+          <h3 className="text-base lg:text-lg font-semibold mb-4">Frequency Bands</h3>
+          <div className="flex justify-between items-end space-x-1 lg:space-x-2 h-32 lg:h-48">
+            {equalizerState.bands.map((band, index) => (
+              <div key={band.frequency} className="flex flex-col items-center space-y-2 flex-1">
+                <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">
+                  {band.gain > 0 ? '+' : ''}{band.gain}
+                </span>
+                <div className="flex flex-col items-center h-20 lg:h-32">
+                  <input
+                    type="range"
+                    min="-12"
+                    max="12"
+                    step="1"
+                    value={band.gain}
+                    onChange={(e) => handleBandChange(index, e.target.value)}
+                    className="h-16 lg:h-28 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer slider vertical touch-manipulation"
+                    style={{
+                      writingMode: 'bt-lr',
+                      WebkitAppearance: 'slider-vertical',
+                      width: '20px',
+                      minWidth: '20px'
+                    }}
+                  />
                 </div>
-              ))}
-            </div>
+                <span className="text-xs text-gray-500 dark:text-gray-400 font-medium text-center leading-tight">
+                  {band.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
